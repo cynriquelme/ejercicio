@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from transferencias import views as trans_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+    path('transferencias/', trans_views.Transferencias.as_view(), name="transferencias"),
 ]
+
+admin.site.site_header = "API"
+admin.site.index_title = "Panel de Administrador"
+admin.site.site_title = "API"

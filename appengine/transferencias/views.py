@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
 from .models import CuentaBancaria, Transferencia
-from .serializers import CuentaBancariaSerializer, TransferenciasSerializer
+from .serializers import TransferenciasSerializer
 from rest_framework import permissions
 
 class Transferencias(APIView):
@@ -45,7 +45,6 @@ class EstadoTransferencia(APIView):
         }
         transferencia = Transferencia.objects.filter(id=(data['id_transferencia']))
         if transferencia:
-            print(transferencia)
             serializer = TransferenciasSerializer(transferencia, many=True)
             return_['info'] = 'Información de Transferencia'
             return_['error'] = False

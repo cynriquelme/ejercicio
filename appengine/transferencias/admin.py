@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Entidad, CuentaBancaria, Transaccion
+from .models import Entidad, CuentaBancaria, Transferencia, Moneda
 
 class CuentaBancariaAdmin(admin.ModelAdmin):
     list_display = (
@@ -12,5 +12,6 @@ class EntidadAdmin(admin.ModelAdmin):
     search_fields = ('descripcion',)
 
 admin.site.register(Entidad, EntidadAdmin)
+admin.site.register(Moneda)
 admin.site.register(CuentaBancaria, CuentaBancariaAdmin)
-admin.site.register(Transaccion)
+admin.site.register(Transferencia)

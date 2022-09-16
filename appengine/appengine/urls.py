@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('transferencias/', trans_views.Transferencias.as_view(), name="transferencias"),
+    path('estado_transferencia/', trans_views.EstadoTransferencia.as_view(), name="estado_transferencia"),
+    path('list_transacciones/', trans_views.ListTransacciones.as_view(), name="list_transacciones"),
 ]
 
 admin.site.site_header = "API"
